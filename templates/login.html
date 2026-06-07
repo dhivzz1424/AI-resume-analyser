@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <div class="divi">
+        <h1 class="title">Smart Resume Analyzer</h1>
+    </div>
+
+    <title>Login</title>
+
+    <style>
+        .divi{
+            background-color: rgb(32, 23, 23);
+        }
+        .title{
+
+            text-align: center;
+
+            color: white;
+
+            font-size: 40px;
+
+            margin-top: 20px;
+
+}
+
+        body{
+            font-family: Arial;
+            background-color: rgb(149, 104, 172);
+            text-align: center;
+        }
+
+        .box{
+            background-color: white;
+            box-shadow: 5cm;
+            width: 400px;
+            margin: auto;
+            margin-top: 100px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        input{
+            width: 90%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        button{
+            width: 95%;
+            padding: 10px;
+            margin-top: 15px;
+            background-color: rgb(172, 63, 171);
+            color: white;
+            border: none;
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>Login</h1>
+
+    <form id="loginForm">
+
+        <input type="email"
+               id="email"
+               placeholder="Enter Email"
+               required>
+
+        <input type="password"
+               id="password"
+               placeholder="Enter Password"
+               required>
+
+        <button type="submit">
+            Login
+        </button>
+
+    </form>
+
+    <p id="msg"></p>
+
+    <hr>
+
+    <p>Don't have an account?</p>
+
+    <a href="/signuppage">
+
+        <button>
+            Signup
+        </button>
+
+    </a>
+
+</div>
+
+
+<script>
+
+document.getElementById("loginForm").onsubmit =
+async function(e){
+
+    e.preventDefault()
+
+    let response = await fetch("/login", {
+
+        method:"POST",
+
+        headers:{
+            "Content-Type":"application/json"
+        },
+
+        body: JSON.stringify({
+
+            email:
+            document.getElementById("email").value,
+
+            password:
+            document.getElementById("password").value
+
+        })
+
+    })
+
+    let data = await response.json()
+
+    document.getElementById("msg").innerHTML =
+    data.message
+
+
+    if(data.message == "Login successful"){
+
+        window.location.href = "/uploadpage"
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>

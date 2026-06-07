@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <h1 class="title">SMART RESUME ANALYZER</h1>
+
+    <title>Signup</title>
+
+    <style>
+
+        body{
+            font-family: Arial;
+            background-color: lightgray;
+            text-align: center;
+        }
+
+        .box{
+            background-color: white;
+            width: 400px;
+            margin: auto;
+            margin-top: 100px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        input{
+            width: 90%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        button{
+            width: 95%;
+            padding: 10px;
+            margin-top: 15px;
+            background-color: green;
+            color: white;
+            border: none;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>Signup</h1>
+
+    <form id="signupForm">
+
+        <input type="email"
+               id="email"
+               placeholder="Enter Email"
+               required>
+
+        <input type="password"
+               id="password"
+               placeholder="Enter Password"
+               required>
+
+        <button type="submit">
+            Signup
+        </button>
+
+    </form>
+
+    <p id="msg"></p>
+
+</div>
+
+
+<script>
+
+document.getElementById("signupForm").onsubmit =
+async function(e){
+
+    e.preventDefault()
+
+    let response = await fetch("/signup", {
+
+        method:"POST",
+
+        headers:{
+            "Content-Type":"application/json"
+        },
+
+        body: JSON.stringify({
+
+            email:
+            document.getElementById("email").value,
+
+            password:
+            document.getElementById("password").value
+
+        })
+
+    })
+
+    let data = await response.json()
+
+    document.getElementById("msg").innerHTML =
+    data.message
+
+
+    // MOVE TO LOGIN AFTER SIGNUP
+
+    if(data.message == "User registered successfully"){
+
+        window.location.href = "/"
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
