@@ -69,16 +69,25 @@ def match_skills(text):
 
 def calculate_score(text, skills):
 
-    score = len(skills) * 10
+    score = 0
+
+    score += min(len(skills) * 8, 40)
 
     text = text.lower()
 
     if "project" in text:
-        score += 10
+        score += 15
+
     if "experience" in text:
+        score += 15
+
+    if "github" in text:
         score += 10
 
-    if "internship" in text:
+    if "linkedin" in text:
+        score += 10
+
+    if "certification" in text:
         score += 10
 
     if score > 100:
@@ -92,17 +101,48 @@ def calculate_score(text, skills):
 def generate_suggestions(text, skills):
 
     suggestions = []
+
+    text = text.lower()
+
     if len(skills) < 5:
-        suggestions.append("Add more technical skills")
+        suggestions.append(
+            "Add more technical skills relevant to your domain."
+        )
 
-    if "project" not in text.lower():
-        suggestions.append("Add projects section")
+    if "project" not in text:
+        suggestions.append(
+            "Add a Projects section with 2-3 major projects."
+        )
 
-    if "experience" not in text.lower():
-        suggestions.append("Add experience section")
+    if "experience" not in text:
+        suggestions.append(
+            "Add internship or work experience."
+        )
 
-    if "internship" not in text.lower():
-        suggestions.append("Mention internships if any")
+    if "github" not in text:
+        suggestions.append(
+            "Include your GitHub profile."
+        )
+
+    if "linkedin" not in text:
+        suggestions.append(
+            "Include your LinkedIn profile."
+        )
+
+    if "certification" not in text:
+        suggestions.append(
+            "Add certifications and courses."
+        )
+
+    if "objective" not in text:
+        suggestions.append(
+            "Add a short career objective."
+        )
+
+    if len(suggestions) == 0:
+        suggestions.append(
+            "Excellent resume. No major improvements detected."
+        )
 
     return suggestions
 

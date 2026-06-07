@@ -8,35 +8,62 @@
 
     <style>
 
-        body{
-            font-family: Arial;
-            background-color: lightgray;
-            text-align: center;
-        }
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
 
-        .box{
-            background-color: white;
-            width: 400px;
-            margin: auto;
-            margin-top: 100px;
-            padding: 20px;
-            border-radius: 10px;
-        }
+.box{
+    background:white;
+    width:400px;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
 
-        input{
-            width: 90%;
-            padding: 10px;
-            margin-top: 10px;
-        }
+.title{
+    text-align:center;
+    color:#090a0b;
+    margin-bottom:20px;
+}
 
-        button{
-            width: 95%;
-            padding: 10px;
-            margin-top: 15px;
-            background-color: green;
-            color: white;
-            border: none;
-        }
+input{
+    width:100%;
+    padding:12px;
+    margin-top:12px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    box-sizing:border-box;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin-top:15px;
+    border:none;
+    border-radius:8px;
+    background:#2563eb;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1d4ed8;
+}
+
+p{
+    text-align:center;
+}
+
+a{
+    text-decoration:none;
+}
 
     </style>
 

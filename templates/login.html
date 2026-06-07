@@ -9,55 +9,58 @@
     <title>Login</title>
 
     <style>
-        .divi{
-            background-color: rgb(32, 23, 23);
-        }
-        .title{
-
-            text-align: center;
-
-            color: white;
-
-            font-size: 40px;
-
-            margin-top: 20px;
-
+        body{
+    margin:0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg,#2563eb,#7c3aed);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
-        body{
-            font-family: Arial;
-            background-color: rgb(149, 104, 172);
-            text-align: center;
-        }
+.box{
+    background:white;
+    width:400px;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
 
-        .box{
-            background-color: white;
-            box-shadow: 5cm;
-            width: 400px;
-            margin: auto;
-            margin-top: 100px;
-            padding: 20px;
-            border-radius: 10px;
-        }
+h1{
+    text-align:center;
+    color:#040405;
+}
 
-        input{
-            width: 90%;
-            padding: 10px;
-            margin-top: 10px;
-        }
+input{
+    width:100%;
+    padding:12px;
+    margin-top:12px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    box-sizing:border-box;
+}
 
-        button{
-            width: 95%;
-            padding: 10px;
-            margin-top: 15px;
-            background-color: rgb(172, 63, 171);
-            color: white;
-            border: none;
-        }
+button{
+    width:100%;
+    padding:12px;
+    margin-top:15px;
+    border:none;
+    border-radius:8px;
+    background:#2563eb;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
 
-        a{
-            text-decoration: none;
-        }
+button:hover{
+    background:#1d4ed8;
+}
+
+.signup-link{
+    text-align:center;
+    margin-top:15px;
+}
 
     </style>
 
